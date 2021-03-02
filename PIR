@@ -1,3 +1,11 @@
+Please follow the connection of Motion sensor with Arduino as follow:
+
++5V ------------------Power
+Digital pin 8 ------- Output
+GND ------------------GND
+
+
+
 int led = 13;
 int pin = 8;
 
@@ -8,7 +16,7 @@ void setup() {
   pinMode(led, OUTPUT);
   pinMode(pin, INPUT);
   Serial.begin(9600);
-  Serial.print("LABEL, Date, Time, State");
+ 
 }
 
 void loop() {
@@ -20,7 +28,6 @@ void loop() {
 
     if (pirState == LOW) {
       Serial.println("Motion Detected!");
-      Serial.print("DATA, DATE, TIME,");
       pirState = HIGH;
     }
   } else {
@@ -28,7 +35,6 @@ void loop() {
 
     if (pirState == HIGH) {
       Serial.println("Motion Ended!");
-      Serial.print("DATA, DATE, TIME,");
       pirState = LOW;
     }
   }
